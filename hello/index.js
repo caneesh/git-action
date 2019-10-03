@@ -15,7 +15,15 @@ try {
     console.log(`repo as eventName is ${eventName}`);
     console.log(`requestEvent is ${requestEvent}`);
     console.log(`body is ${body}`);
-    console.log(`Commit id is ${payload.after.toString()}`)
+    var obj = JSON.parse(payload);
+
+    Object.keys(obj.return).forEach((key) => {
+        obj.return[key] = obj.return[key][0]['$'];
+    });
+
+    console.log(obj)
+
+
 
 
     // `who-to-greet` input defined in action metadata file
