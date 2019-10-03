@@ -9,11 +9,13 @@ try {
     const str = repo.repo.toString();
     const owner = repo.owner.toString();
     const eventName = github.context.eventName.toString();
+    const payload = JSON.stringify(github.context.payload, undefined, 2);
     console.log(`repo as owner is ${owner}`);
     console.log(`repo as string is ${str}`);
     console.log(`repo as eventName is ${eventName}`);
     console.log(`requestEvent is ${requestEvent}`);
     console.log(`body is ${body}`);
+    console.log(`Commit id is ${payload.after.toString()}`)
 
 
     // `who-to-greet` input defined in action metadata file
@@ -25,7 +27,7 @@ try {
     const time = (new Date()).toTimeString();
     core.setOutput("time", time);
     // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2);
+
     console.log(`The event payload: ${payload}`);
 } catch (error) {
     core.setFailed(error.message);
