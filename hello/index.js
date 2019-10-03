@@ -2,6 +2,12 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
+    const token = core.getInput('repo-token');
+    const requestEvent = core.getInput('event');
+    const body = core.getInput('body');
+    console.log(`token is ${token}`);
+    console.log(`requestEvent is ${requestEvent}`);
+    console.log(`requestEvent is ${body}`);
     // `who-to-greet` input defined in action metadata file
     const environment = core.getInput("env");
     console.log(environment);
