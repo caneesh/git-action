@@ -6,7 +6,9 @@ try {
     const requestEvent  = JSON.stringify(core.getInput('event'), undefined, 2);
     const token  = JSON.stringify(core.getInput('repo-token'), undefined, 2);
     const body  = JSON.stringify(core.getInput('body'), undefined, 2);
-    const str = repo.repo.toString()
+    const str = repo.repo.toString();
+    const owner = repo.owner.toString();
+    console.log(`repo as owner is ${owner}`);
     console.log(`repo as string is ${str}`);
     console.log(`requestEvent is ${requestEvent}`);
     console.log(`body is ${body}`);
