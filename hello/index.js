@@ -2,11 +2,12 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-    const repo = github.context.repo
+    const repo = github.context.repo;
     const requestEvent  = JSON.stringify(core.getInput('event'), undefined, 2);
     const token  = JSON.stringify(core.getInput('repo-token'), undefined, 2);
     const body  = JSON.stringify(core.getInput('body'), undefined, 2);
-    console.log(`repo is ${repo}`);
+    const str = repo.repo.toString()
+    console.log(`repo as string is ${str}`);
     console.log(`requestEvent is ${requestEvent}`);
     console.log(`body is ${body}`);
     // `who-to-greet` input defined in action metadata file
