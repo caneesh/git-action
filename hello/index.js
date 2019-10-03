@@ -8,10 +8,14 @@ try {
     const body  = JSON.stringify(core.getInput('body'), undefined, 2);
     const str = repo.repo.toString();
     const owner = repo.owner.toString();
+    const eventName = github.context.eventName.toString();
     console.log(`repo as owner is ${owner}`);
     console.log(`repo as string is ${str}`);
+    console.log(`repo as eventName is ${eventName}`);
     console.log(`requestEvent is ${requestEvent}`);
     console.log(`body is ${body}`);
+
+
     // `who-to-greet` input defined in action metadata file
     const environment = core.getInput("env");
     console.log(environment);
