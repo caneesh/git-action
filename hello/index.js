@@ -1,10 +1,13 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const { Toolkit } = require('actions-toolkit');
+const tools = new Toolkit()
 
 try {
     const repo = github.context.repo;
     const requestEvent  = JSON.stringify(core.getInput('event'), undefined, 2);
-    const token  = JSON.stringify(core.getInput('repo-token'), undefined, 2);
+
+    const  token = tools.token;
     const body  = JSON.stringify(core.getInput('body'), undefined, 2);
     const str = repo.repo.toString();
     const owner = repo.owner.toString();
@@ -13,15 +16,8 @@ try {
     console.log(`repo as owner is ${owner}`);
     console.log(`repo as string is ${str}`);
     console.log(`repo as eventName is ${eventName}`);
-    console.log(`requestEvent is ${requestEvent}`);
-    console.log(`body is ${body}`);
-    var obj = JSON.parse(payload);
+    console.log(`Token is ${token}`)
 
-    Object.keys(obj.return).forEach((key) => {
-        obj.return[key] = obj.return[key][0]['$'];
-    });
-
-    console.log(obj)
 
 
 
