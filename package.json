@@ -1,0 +1,32 @@
+{
+  "name": "git-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "AddComment.js",
+  "scripts": {
+    "test": "jasmine/spec.js",
+    "build": "babel src spec -d target"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/Users/usr/WebstormProjects/githubactions/git-action"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.1.1",
+    "@actions/github": "^1.1.0",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/register": "^7.6.2",
+    "@octokit/graphql": "^4.2.0",
+    "@octokit/rest": "^16.30.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "grunt": "^1.0.4",
+    "grunt-contrib-jshint": "^2.1.0",
+    "jasmine": "^3.5.0"
+  }
+}
