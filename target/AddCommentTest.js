@@ -1,6 +1,6 @@
 "use strict";
 
-var _AddComment = require("../src/AddComment.js");
+var _AddComment = require("./AddComment.js");
 
 var _AddComment2 = _interopRequireDefault(_AddComment);
 
@@ -17,6 +17,7 @@ describe("Add comment tests", function () {
 
             var value = new _AddComment2.default().getOwnerAndRepo();
             var obj = JSON.parse(JSON.stringify(value));
+            console.log(obj.owner);
             expect(obj.owner).toBe("someactionowner");
         });
     });
