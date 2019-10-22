@@ -17,7 +17,9 @@
   "dependencies": {
     "@actions/core": "^1.2.0",
     "@actions/github": "^1.1.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.3",
     "@babel/register": "^7.6.2",
     "@octokit/graphql": "^4.2.0",
     "@octokit/rest": "^16.30.1"
