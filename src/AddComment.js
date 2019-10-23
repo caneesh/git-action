@@ -80,29 +80,24 @@ class AddComment {
   }
 
 
-  async addComment(comment) {
+  addComment(comment) {
     const nameAndRepo = this.getOwnerAndRepo();
-    const graphqlWithAuth = this.getGraphqlWithAuth();
+    const graphqlWithAuth = this.getGraphqlWithAuth(token);
     const findPullRequestIdQuery = this.findPullRequestQuery();
-    try {
-      const subjectId = await this.getSubjectId(graphqlWithAuth, findPullRequestIdQuery, nameAndRepo);
-      await this.addCommentUsingSubjectId(subjectId, comment);
-    } catch (e) {
-
-    }
-
-
-  }
-
-  getSubjectId(graphqlWithAuth, findPullRequestIdQuery, nameAndRepo) {
     graphqlWithAuth(findPullRequestIdQuery, {
         owner: nameAndRepo.owner,
         repo: nameAndRepo.repo,
-        pullNumber: this.getPullNumber(),
-      },
-    );
+        pullNumber: this.getPullNumber()
+      }
+    ).catch(err => {
+      throw new Error(`not able to obtain pull request Id for the pull number ${this.getPullNumber()} , ${err}`);
+    }).then(pullRequestId => this.addCommentUsingSubjectId(pullRequestId, comment)).finally(
+      () =>{});
   }
 }
+
+
+
 
 export default AddComment;
 
