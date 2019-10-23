@@ -2,7 +2,7 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _AddComment = _interopRequireDefault(require("./AddComment.js"));
+var _AddComment = _interopRequireDefault(require("../src/AddComment"));
 
 describe("Add comment tests", function () {
   beforeEach(function () {
